@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jedi</title>
+</head>
+<body>
+    <p id="skittles">Skittles</p>
+    <p>Fear</p>
+    <p>Anger</p>
+    <script>
+        let para=document.getElementsByTagName("p");
+        document.body.insertBefore(para[2], para[0]);
+
+        console.log(para.length);
+        let test="cat"
+
+        for(i=0; i<para.length;i++){
+            console.log(i);
+            let header =i+1;
+            para[i].innerHTML="<h"+header+">para"+test+"</h"+header+">";
+        }
+
+        document.body.innerHTML="Well idk";
+      /*  let newpara=document.createTextNode("Jediaaaaaa");
+        document.body.appendChild(newpara);*/
+        let newpara = document.createElement("p");
+        let text= document.createTextNode("a jedi craves not these");
+        newpara.appendChild(text);
+        document.body.appendChild(newpara);
+
+    </script>
+
+</body>
+</html>
