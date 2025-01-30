@@ -11,4 +11,5 @@ app.get('/test', function(req, res){
     var y = req.query.y; 
        res.send("X + Y="+(x+y)); 
     }); 
+    app.use(express.static('public'))
 app.listen(8080);
