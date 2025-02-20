@@ -55,7 +55,7 @@ app.get('/filter', function(req,res) {
 });
 app.get('/update', function(req,res) {
 
-  res.render('pages/updat')
+  res.render('pages/update')
 });
 
 
