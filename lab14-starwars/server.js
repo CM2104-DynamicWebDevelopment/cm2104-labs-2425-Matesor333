@@ -48,10 +48,10 @@ app.get('pages/add', function(req,res) {
 app.get('pages/delete', function(req,res) {
 
 });
-app.get('pa/filter', function(req,res) {
+app.get('pages/filter', function(req,res) {
 
 });
-app.get('/update', function(req,res) {
+app.get('pages/update', function(req,res) {
 
 });
 
