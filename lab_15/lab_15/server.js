@@ -73,13 +73,10 @@ app.get('/', function(req, res) {
       user: result
     })
   });
-  db.collection('people').findOne({"login.username": uname}, function(err, result) {
-    if (err) throw err;
+    
     res.render('pages/users', {
-      
       users: result
     })
-  });
   });
 
 });
