@@ -60,7 +60,20 @@ app.get('/', function(req, res) {
   //otherwise perfrom a search to return all the documents in the people collection
   db.collection('people').find().toArray(function(err, result) {
     if (err) throw err;
-    //the result of the query is sent to the users page as the "users" array
+    
+    var uname = req.query.username;
+  
+ 
+  db.collection('people').findOne({"login.username": uname}, function(err, result) {
+    if (err) throw err;
+   
+
+
+    res.render('pages/profile', {
+      user: result
+    })
+  });
+    
     res.render('pages/users', {
       users: result
     })
