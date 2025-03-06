@@ -73,10 +73,13 @@ app.get('/', function(req, res) {
       user: result
     })
   });
-    
+  db.collection('people').findOne({"login.username": uname}, function(err, result) {
+    if (err) throw err;
     res.render('pages/users', {
+      
       users: result
     })
+  });
   });
 
 });
@@ -113,16 +116,7 @@ app.get('/adduser', function(req, res) {
 //remuser route simply draws our remuser page
 app.get('/remuser', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
-  db.collection('people').findOne({"login.username": uname}, function(err, result) {
-    if (err) throw err;
-   
-
-
-    res.render('pages/remuser', {
-      user: result
-    })
-  });
-  
+  res.render('pages/remuser')
 });
 //logour route cause the page to Logout.
 //it sets our session.loggedin to false and then redirects the user to the login
