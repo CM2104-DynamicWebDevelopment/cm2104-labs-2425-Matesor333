@@ -1,5 +1,5 @@
 var socket = io();
-
+var user= true
 $('#form').submit(function () { 
     var message = $('#input').val(); 
     if (message) { 
@@ -9,6 +9,16 @@ $('#form').submit(function () {
     return false;  
     })
     socket.on('chat message', function(msg) { 
-        $('#messages').append("<li>"+msg+"</li>"); 
-        window.scrollTo(0, document.body.scrollHeight); 
+        if(user==true){
+            $('#Username').append(+" User");
+            $('#messages').append("<li>"+msg+"</li>");
+            
+        } 
+        if(user==false){
+            $('#Username').append(+" ANother user");
+            $('#messages').append("<li>"+msg+"</li>");
+            
+        } 
+        window.scrollTo(0, document.body.scrollHeight);
+        user =false 
     });
