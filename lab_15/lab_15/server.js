@@ -1,10 +1,4 @@
-/**
- * @Author: John Isaacs <john>
- * @Date:   01-Mar-19
- * @Filename: server.js
- * @Last modified by:   john
- * @Last modified time: 03-Mar-2024
- */
+
 
 //code to link to mongo module
 const MongoClient = require('mongodb-legacy').MongoClient; //npm install mongodb-legacy
@@ -73,6 +67,7 @@ app.get('/', function(req, res) {
       user: result
     })
   });
+  
     
     res.render('pages/users', {
       users: result
@@ -89,11 +84,9 @@ app.get('/login', function(req, res) {
 
 app.get('/profile', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
-  
-  
+
   var uname = req.query.username;
-  
- 
+   
   db.collection('people').findOne({"login.username": uname}, function(err, result) {
     if (err) throw err;
    
